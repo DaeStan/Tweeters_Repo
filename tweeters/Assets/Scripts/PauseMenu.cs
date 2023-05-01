@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,10 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsPaused)
+            Debug.Log ("Key was pressed");
+            if (GameIsPaused == true)
             {
                 Resume();
             }
@@ -24,14 +26,14 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Resume ()
+    public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
 
-        void Pause ()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -52,6 +54,6 @@ public class PauseMenu : MonoBehaviour
 
     void Start() 
     {
-        GameIsPaused = false;
+        pauseMenuUI.SetActive(false);
     }
 }
